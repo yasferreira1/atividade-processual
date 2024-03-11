@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+      <!-- Nome: Amanda Luiza Dias Santos   N° 02     
+           Nome: Erick Oliveira Gomes       N° 08
+           Nome: Isadora Cassioti Teodoro   N° 13     3°B
+           Nome: Patrick Gomes de Sousa     N° 25
+           Nome: Yasmin Ferreira Salgado    N° 30
+        -->
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Números Primos</title>
+    <script>
+        function Primos() {
+            var N1 = parseInt(document.getElementById("numero1").value, 10);
+            var canvas = document.getElementById("MeuCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.font = "20px Arial";
+            ctx.fillStyle = "blue"; 
+            var resultado = '';
+
+            if (N1 < 2 ) {
+                resultado = N1 + " não é primo";
+            } 
+            else {
+                var primo = true;
+
+            for (var contador = 2; contador <= Math.sqrt(N1); contador++) {
+                if (N1 % contador === 0) {
+                    primo = false;
+                    break;
+                }
+            }
+            
+            if (primo){
+                resultado = N1 + " é primo";
+            } 
+            else{
+                resultado = N1 + " não é primo";
+            }
+        }
+
+        ctx.fillText(resultado, 10, 50);
+    }
+    </script>
+</head>
+<body>
+    <label for="numero1">É Número Primo ou Não?</label>   
+    <input type="numero" id="numero1"><br><br>
+
+    <button onclick="Primos()">Calcular</button><br><br>
+    
+    <canvas id="MeuCanvas" width="300" height="300" style="border:1px solid #000000; background-color: white;"></canvas>
+</body>
+</html>
